@@ -1,0 +1,52 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"listFiles": false,
+		"pretty": true,
+
+		"moduleResolution": "node",
+		"traceResolution": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+
+		"allowJs": false,
+		"forceConsistentCasingInFileNames": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": false,
+		"strictNullChecks": true,
+		"suppressImplicitAnyIndexErrors": false,
+
+		"target": "es2015",
+		"module": "es2015",
+		"noEmitOnError": true,
+		"newLine": "lf",
+		"declaration": true,
+		"sourceMap": true,
+		"outDir": "dist/es6"
+	},
+	"files": [
+		"node_modules/@types/lodash/index.d.ts",
+		"node_modules/@types/node/index.d.ts",
+		"typings-custom/intl-messageformat.d.ts",
+		"typings-custom/unit-tests-global-variables.d.ts",
+		"src/node/auto-intl-polyfiller.ts",
+		"src/are-intl-locales-supported.ts",
+		"src/format-icu-message.ts",
+		"src/format-icu-message_spec.ts",
+		"src/format-key.ts",
+		"src/format-key_spec.ts",
+		"src/icu-data-container.ts",
+		"src/icu-data-container_spec.ts"
+	],
+	"exclude": [
+		"dist",
+		"node_modules",
+		"scripts",
+		"test",
+		"tosort"
+	]
+}
