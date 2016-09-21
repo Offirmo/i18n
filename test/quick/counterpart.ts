@@ -2,14 +2,9 @@
 ':' //# http://sambal.org/?p=1014 ; exec `dirname $0`/../../node_modules/.bin/ts-node "$0" "$@"
 'use strict';
 
-/// <reference path="../../typings-custom/counterpart.d.ts" />
-
-import { polyfill_intl_for_locales } from '../../src/node/auto-intl-polyfiller'
-
 console.log('Hello world !')
 
-polyfill_intl_for_locales([ 'en', 'fr'])
-
+/// <reference path="../../typings-custom/counterpart.d.ts" />
 //import * as counterpart from 'counterpart'
 const Counterpart = require('counterpart')
 

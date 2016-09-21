@@ -13,6 +13,8 @@ interface IIntl {
 	formats?: Object
 }
 
+////////////
+
 interface ICustomFormatFunction {
 	(values: Object, intl: IIntl, libs: any, debug_id: string): string
 }

@@ -54,9 +54,9 @@ Promise.resolve()
 .then(() => console.log('SUCCESS'), console.error)
 
 function transpile_typescript_to_es6() {
-	return tsc.compile({
-		'project': '.'
-	})
+	return tsc.compile(Object.assign({}, tsconfig.json.compilerOptions, {
+			'module': 'ES2015'
+		}))
 }
 
 // Compile source code into a distributable format with Rollup+Babel

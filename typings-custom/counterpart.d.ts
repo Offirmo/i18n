@@ -1,3 +1,4 @@
+
 declare namespace CounterpartModule {
   type _CounterpartConstructor = {
     prototype: Counterpart
@@ -5,6 +6,7 @@ declare namespace CounterpartModule {
   type _LocaleChangedHandler = (locale: string) => void
   type _Translations = { [key: string]: string }
 }
+
 declare interface Counterpart {
   registerTranslations(locale: string, translations: CounterpartModule._Translations): void
   translate(key: string, options?: Object): string
@@ -13,6 +15,7 @@ declare interface Counterpart {
   onLocaleChange(handler: CounterpartModule._LocaleChangedHandler): void
   offLocaleChange(handler: CounterpartModule._LocaleChangedHandler): void
 }
+
 declare module 'counterpart' {
   interface TranslateFunction extends Counterpart {
     (key: string, params?: {}): string

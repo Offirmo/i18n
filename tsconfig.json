@@ -21,7 +21,7 @@
 		"suppressImplicitAnyIndexErrors": false,
 
 		"target": "es2015",
-		"module": "es2015",
+		"module": "CommonJS",
 		"noEmitOnError": true,
 		"newLine": "lf",
 		"declaration": true,
@@ -31,6 +31,7 @@
 	"files": [
 		"node_modules/@types/lodash/index.d.ts",
 		"node_modules/@types/node/index.d.ts",
+		"typings-custom/intl-locales-supported.d.ts",
 		"typings-custom/intl-messageformat.d.ts",
 		"typings-custom/unit-tests-global-variables.d.ts",
 		"src/node/auto-intl-polyfiller.ts",
@@ -39,8 +40,8 @@
 		"src/format-icu-message_spec.ts",
 		"src/format-key.ts",
 		"src/format-key_spec.ts",
-		"src/icu-data-container.ts",
-		"src/icu-data-container_spec.ts"
+		"src/index.ts",
+		"src/index_spec.ts"
 	],
 	"exclude": [
 		"dist",
