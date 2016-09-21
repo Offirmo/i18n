@@ -1,5 +1,7 @@
 
 
+Yahoo's FormatJS suite http://formatjs.io/
+ 
 https://github.com/andyearnshaw/Intl.js/issues/19
 
 
