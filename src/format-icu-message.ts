@@ -9,11 +9,11 @@ const IntlMessageFormat = require('intl-messageformat')
 
 ////////////
 
-import { IError, IErrorReporter } from './types'
+import { I18nError, I18nErrorReporter } from './types'
 
 ////////////////////////////////////
 
-const default_error_reporter: IErrorReporter = (err: IError) => {
+const default_error_reporter: I18nErrorReporter = (err: I18nError) => {
 	console.error(err)
 }
 
@@ -33,7 +33,7 @@ function format(
 	locale: string = 'en',
 	custom_formats: Object = {},
 	parent_debug_id: string = '?',
-	error_reporter: IErrorReporter = default_error_reporter
+	error_reporter: I18nErrorReporter = default_error_reporter
 ): string {
 	// errors while resolving the message
 	const problems: string[] = []
@@ -107,7 +107,7 @@ function format(
 	}
 
 	if (underlying_error || problems.length) {
-		const err: IError = new Error('Unable to properly format the given ICU message !') as IError
+		const err: I18nError = new Error('Unable to properly format the given ICU message !') as I18nError
 		err.src = 'format-icu-message.format'
 		err.params = {
 			message,
@@ -126,6 +126,6 @@ function format(
 
 export {
 	format,
-	IError,
-	IErrorReporter,
+	I18nError,
+	I18nErrorReporter,
 }

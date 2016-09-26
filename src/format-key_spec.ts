@@ -4,18 +4,18 @@ import * as sinon from 'sinon'
 const timezone_plus_1 = !!process.env.TIMEZONE_PLUS_ONE
 
 import {
-	IIntl,
-	IErrorReporter,
+	Intl,
+	I18nErrorReporter,
 	format
 } from './format-key'
 
 
 describe('format-key', function() {
 
-	let error_reporter: IErrorReporter
+	let error_reporter: I18nErrorReporter
 
 	beforeEach(() => {
-		error_reporter = sinon.spy() as IErrorReporter
+		error_reporter = sinon.spy() as I18nErrorReporter
 	})
 
 	const test_values = {
@@ -28,7 +28,7 @@ describe('format-key', function() {
 		weapon_qualif_2_key: 'weaponqualif2_apprentice',
 	}
 
-	const intl_fr: IIntl = {
+	const intl_fr: Intl = {
 		locale: 'fr',
 		messages: {
 			foo: 'foo',
@@ -38,7 +38,7 @@ describe('format-key', function() {
 			weapon_sword: 'épée',
 			weaponqualif1_sinister: 'sinistre',
 			weaponqualif2_apprentice: 'd’apprenti',
-			fn: function build_weapon_name(values: any, intl: IIntl, libs: any, debug_id: string): string {
+			fn: function build_weapon_name(values: any, intl: Intl, libs: any, debug_id: string): string {
 				const parts = libs.format_multiple([
 					values.weapon_key,
 					values.weapon_qualif_1_key,
@@ -53,7 +53,7 @@ describe('format-key', function() {
 		}
 	}
 
-	const intl_en: IIntl = {
+	const intl_en: Intl = {
 		locale: 'en',
 		messages: {
 			foo: 'foo',
@@ -63,7 +63,7 @@ describe('format-key', function() {
 			weapon_sword: 'sword',
 			weaponqualif1_sinister: 'sinister',
 			weaponqualif2_apprentice: 'apprentice’s',
-			fn: function build_weapon_name(values: any, intl: IIntl, libs: any, debug_id: string) {
+			fn: function build_weapon_name(values: any, intl: Intl, libs: any, debug_id: string) {
 				const parts = libs.format_multiple([
 					values.weapon_qualif_2_key,
 					values.weapon_qualif_1_key,

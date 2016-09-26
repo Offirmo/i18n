@@ -35,7 +35,6 @@
 		"typings-custom/intl-messageformat.d.ts",
 		"typings-custom/unit-tests-global-variables.d.ts",
 		"src/node/auto-intl-polyfiller.ts",
-		"src/are-intl-locales-supported.ts",
 		"src/format-icu-message.ts",
 		"src/format-icu-message_spec.ts",
 		"src/format-key.ts",

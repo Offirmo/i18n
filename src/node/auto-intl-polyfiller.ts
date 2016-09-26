@@ -4,7 +4,8 @@
  * http://formatjs.io/guides/runtime-environments/#server
  */
 
-import areIntlLocalesSupported from 'intl-locales-supported'
+//import areIntlLocalesSupported from 'intl-locales-supported'
+const areIntlLocalesSupported = require('intl-locales-supported')
 
 // complete polyfilling (node <= 0.10)
 // This one doesn't need user infos

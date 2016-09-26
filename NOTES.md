@@ -26,3 +26,8 @@ https://github.com/yahoo/intl-format-cache
 https://github.com/yahoo/intl-locales-supported
 
 small utility for polyfilling intl
+
+
+
+
+		"src/are-intl-locales-supported.ts",

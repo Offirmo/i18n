@@ -3,17 +3,15 @@ import {
 	//IMessagesStore,
 	//IIntl,
 	//IIntlChangeListener,
-	default_instance,
+	//default_instance,
 	//factory,
-} from './icu-data-container'
+} from './index'
 
 describe('icu-data-container', function() {
 
 	describe('setter', function() {
 
-		it('should be exposed', function() {
-			expect(default_instance.set_icu_data).to.be.a('function')
-		})
+		it('should be exposed')
 
 		context('when given correct parameters', function() {
 			it('should work')

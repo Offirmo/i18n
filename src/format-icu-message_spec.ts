@@ -1,15 +1,15 @@
 import * as sinon from 'sinon'
 
-import { format, IErrorReporter } from './format-icu-message'
+import { format, I18nErrorReporter } from './format-icu-message'
 
 const timezone_plus_1 = !!process.env.TIMEZONE_PLUS_ONE
 
 describe('format-icu-message', function() {
 
-	let error_reporter: IErrorReporter
+	let error_reporter: I18nErrorReporter
 
 	beforeEach(() => {
-		error_reporter = sinon.spy() as IErrorReporter
+		error_reporter = sinon.spy() as I18nErrorReporter
 	})
 
 	it('should expose a function', function() {

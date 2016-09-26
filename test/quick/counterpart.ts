@@ -6,9 +6,9 @@ console.log('Hello world !')
 
 /// <reference path="../../typings-custom/counterpart.d.ts" />
 //import * as counterpart from 'counterpart'
-const Counterpart = require('counterpart')
+const i18n = require('counterpart')
 
-Counterpart.registerTranslations('fr', {
+i18n.registerTranslations('fr', {
 	hello: 'Bonjour',
 	x_items: {
 		zero:  'Pas d’éléments.',
@@ -17,7 +17,7 @@ Counterpart.registerTranslations('fr', {
 	}
 })
 
-Counterpart.registerTranslations('en', {
+i18n.registerTranslations('en', {
 	hello: 'Hello',
 	x_items: {
 		zero:  'No items.',
@@ -27,15 +27,17 @@ Counterpart.registerTranslations('en', {
 })
 
 console.log('*** fr ***')
-Counterpart.setLocale('fr')
-console.log(Counterpart.translate('hello'))
-console.log(Counterpart.translate('x_items', { count: 0  }))
-console.log(Counterpart.translate('x_items', { count: 1  }))
-console.log(Counterpart.translate('x_items', { count: 42 }))
+i18n.setLocale('fr')
+console.log(i18n.translate('hello'))
+console.log(i18n.translate('x_items', { count: 0  }))
+console.log(i18n.translate('x_items', { count: 1  }))
+console.log(i18n.translate('x_items', { count: 42 }))
+console.log(i18n.translate('foo'))
 
 console.log('*** en ***')
-Counterpart.setLocale('en')
-console.log(Counterpart.translate('hello'))
-console.log(Counterpart.translate('x_items', { count: 0  }))
-console.log(Counterpart.translate('x_items', { count: 1  }))
-console.log(Counterpart.translate('x_items', { count: 42 }))
+i18n.setLocale('en')
+console.log(i18n.translate('hello'))
+console.log(i18n.translate('x_items', { count: 0  }))
+console.log(i18n.translate('x_items', { count: 1  }))
+console.log(i18n.translate('x_items', { count: 42 }))
+console.log(i18n.translate('foo'))

@@ -8,12 +8,12 @@ import * as _s from 'underscore.string'
 
 ////////////
 
-import { IIntl, ICustomFormatFunction, IError, IErrorReporter } from './types'
+import { Intl, CustomFormatFunction, I18nError, I18nErrorReporter } from './types'
 import { format as format_icu_message } from './format-icu-message'
 
 ////////////////////////////////////
 
-const default_error_reporter: IErrorReporter = (err: IError) => {
+const default_error_reporter: I18nErrorReporter = (err: I18nError) => {
 	console.error(err)
 }
 
@@ -21,9 +21,9 @@ const default_error_reporter: IErrorReporter = (err: IError) => {
 function format_single_key(
 	key: string,
 	values: Object,
-	intl: IIntl,
+	intl: Intl,
 	parent_debug_id: string = '?',
-	error_reporter: IErrorReporter = default_error_reporter
+	error_reporter: I18nErrorReporter = default_error_reporter
 ): string {
 	// errors while resolving the message
 	const problems: string[] = []
@@ -42,7 +42,7 @@ function format_single_key(
 	}
 	if (!_.isString(intl.locale)) {
 		problems.push('invalid locale')
-		intl.locale = intl.messages.locale || 'en'
+		intl.locale = 'en'
 	}
 	if (!_.isString(parent_debug_id)) {
 		parent_debug_id = '?'
@@ -90,7 +90,7 @@ function format_single_key(
 		try {
 			if (_.isFunction(message)) {
 				debug.message = key + '<function>'
-				const build_message: ICustomFormatFunction = message as ICustomFormatFunction
+				const build_message: CustomFormatFunction = message as CustomFormatFunction
 				const exposed = {
 					_: _,
 					_s: _s,
@@ -125,7 +125,7 @@ function format_single_key(
 	}
 
 	if (underlying_error || problems.length) {
-		const err: IError = new Error('Unable to properly format the given ICU message !') as IError
+		const err: I18nError = new Error('Unable to properly format the given ICU message !') as I18nError
 		err.src = 'format-key.format_single_key'
 		err.params = {
 			key,
@@ -144,9 +144,9 @@ function format_single_key(
 function format_multiple_keys(
 	keys: string[],
 	values: Object,
-	intl: IIntl,
+	intl: Intl,
 	parent_debug_id: string = '?',
-	error_reporter: IErrorReporter = default_error_reporter
+	error_reporter: I18nErrorReporter = default_error_reporter
 ): string[] {
 	return keys.map(key => format_single_key(key, values, intl, parent_debug_id, error_reporter))
 }
@@ -154,9 +154,9 @@ function format_multiple_keys(
 function format(
 	key: string | string[],
 	values: Object,
-	intl: IIntl,
+	intl: Intl,
 	parent_debug_id: string = '?',
-	error_reporter: IErrorReporter = default_error_reporter
+	error_reporter: I18nErrorReporter = default_error_reporter
 ): string | string[] {
 	if (_.isArray(key))
 		return format_multiple_keys(key as string[], values, intl, parent_debug_id, error_reporter)
@@ -165,9 +165,9 @@ function format(
 }
 
 export {
-	IIntl,
-	IError,
-	IErrorReporter,
+	Intl,
+	I18nError,
+	I18nErrorReporter,
 	format,
 	format_single_key,
 	format_multiple_keys,
