@@ -12,7 +12,7 @@ import {
 	IcuMessageStore,
 	Intl,
 	IntlChangeListener,
-	I18nError,
+	//I18nError,
 	I18nErrorReporter,
 } from './types'
 
@@ -23,6 +23,7 @@ import {
 ////////////////////////////////////
 
 function factory() {
+	const default_reporter: I18nErrorReporter = console.error
 
 	let current_locale: LocaleCode = 'en'
 	const all_intls: {
@@ -31,9 +32,7 @@ function factory() {
 	ensure_intl_for_locale(current_locale)
 	let current_intl: Intl = all_intls[current_locale]
 	let locale_change_listeners: IntlChangeListener[] = []
-	let error_reporter: I18nErrorReporter = (err: I18nError) => {
-		console.error(err)
-	}
+	let error_reporter: I18nErrorReporter = default_reporter
 
 	function ensure_intl_for_locale(locale: LocaleCode) {
 		const intl: Intl = all_intls[locale] || {
@@ -57,20 +56,27 @@ function factory() {
 		locale_change_listeners.forEach((listener: IntlChangeListener) => listener(current_intl))
 	}
 
-	function set_error_reporter(reporter: I18nErrorReporter) {
-		//TODO
+	function set_error_reporter(reporter?: I18nErrorReporter) {
+		error_reporter = reporter || default_reporter
 	}
 
 	function get_locale() {
 		return current_locale
 	}
 
-	function add_translations(locale: LocaleCode, messages: IcuMessageStore = {}, custom_formats: Object = {}) {
+	function add_translations(locale: LocaleCode, messages: IcuMessageStore = {}) {
 		ensure_intl_for_locale(locale)
 
 		const intl: Intl = all_intls[locale]
 
 		Object.assign(intl.messages, messages)
+	}
+
+	function add_custom_formats(locale: LocaleCode, custom_formats: Object = {}) {
+		ensure_intl_for_locale(locale)
+
+		const intl: Intl = all_intls[locale]
+
 		Object.assign(intl.formats, custom_formats)
 	}
 
@@ -106,6 +112,7 @@ function factory() {
 	return {
 		setLocale: set_locale,
 		addTranslations: add_translations,
+		addCustomFormats: add_custom_formats,
 		setErrorReporter: set_error_reporter,
 		translate,
 		getLocale: get_locale,

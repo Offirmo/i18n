@@ -28,9 +28,9 @@ function polyfill_intl_for_locales(locales_my_app_needs: string[]) {
 		// ex. node >= 0.12 only has en
 		// so load the polyfill and replace the constructors which need it with the polyfill's
 		console.log(`* [@offirmo/internationalize] polyfilling partial intl for [${locales_my_app_needs}]...`)
-		/*const Intl_polyfill = require('intl')
+		const Intl_polyfill = require('intl')
 		Intl.NumberFormat = Intl_polyfill.NumberFormat
-		Intl.DateTimeFormat = Intl_polyfill.DateTimeFormat*/
+		Intl.DateTimeFormat = Intl_polyfill.DateTimeFormat
 	}
 }
 
