@@ -39,7 +39,7 @@
     "underscore.string": "^3.3.4"
   },
   "devDependencies": {
-    "@offirmo/unit-test-toolbox": "0.0.1",
+    "@offirmo/unit-test-toolbox": "1.0.0",
     "@types/lodash": "^4.14.30",
     "@types/node": "^6.0.41",
     "@types/underscore.string": "^0.0.30",
