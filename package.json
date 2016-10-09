@@ -1,6 +1,6 @@
 {
   "name": "@offirmo/i18n",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A powerful, standard-compliant i18n lib for your JS / TS app, built around yahoo's excellent FormatJS lib.",
   "main": "index.js",
   "scripts": {
