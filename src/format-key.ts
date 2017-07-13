@@ -4,7 +4,7 @@
 ////////////////////////////////////
 
 import * as _ from 'lodash'
-import * as _s from 'underscore.string'
+//import * as _s from 'underscore.string'
 
 ////////////
 
@@ -93,7 +93,7 @@ function format_single_key(
 				const build_message: CustomFormatFunction = message as CustomFormatFunction
 				const exposed = {
 					_: _,
-					_s: _s,
+					_s: null, //_s,
 					format: _.partialRight(format, intl, debug.id),
 					format_multiple: _.partialRight(format_multiple_keys, intl, debug.id),
 				}
