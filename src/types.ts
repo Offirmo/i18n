@@ -7,6 +7,12 @@ type LocaleCode = string
 // http://userguide.icu-project.org/formatparse/messages
 type IcuMessage = string
 
+// we allow an extension (non-standard !) to the ICU standard
+// to handle complicated messages
+interface CustomFormatFunction {
+	// TODO remove any
+	(values: Object, intl: any, libs: any, debug_id: string): string
+}
 type ExtendedIcuMessage = IcuMessage | Function /* can't use CustomFormatFunction, circular reference... */
 
 interface IcuMessageStore {
@@ -22,13 +28,6 @@ interface Intl {
 }
 
 ////////////
-// we allow an extension (non-standard !) to the ICU standard
-// to handle complicated messages
-interface CustomFormatFunction {
-	// TODO remove any
-	(values: Object, intl: any, libs: any, debug_id: string): string
-}
-
 
 interface IntlChangeListener {
 	(i: Intl): void

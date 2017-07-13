@@ -9,7 +9,7 @@ const IntlMessageFormat = require('intl-messageformat')
 
 ////////////
 
-import { I18nError, I18nErrorReporter } from './types'
+import { LocaleCode, IcuMessage, I18nError, I18nErrorReporter } from './types'
 
 ////////////////////////////////////
 
@@ -19,18 +19,10 @@ const default_error_reporter: I18nErrorReporter = (err: I18nError) => {
 
 ////////////
 
-/**
- *
- * @param message - an ICU MessageFormat string http://userguide.icu-project.org/formatparse/messages
- * @param values
- * @param locale
- * @param custom_formats [not recommended]
- * @returns {String}
- */
 function format(
-	message: string,
+	message: IcuMessage,
 	values?: Object,
-	locale: string = 'en',
+	locale: LocaleCode = 'en',
 	custom_formats: Object = {},
 	parent_debug_id: string = '?',
 	error_reporter: I18nErrorReporter = default_error_reporter
